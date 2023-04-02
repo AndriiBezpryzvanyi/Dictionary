@@ -1,0 +1,47 @@
+@import "../../styles/mixins.scss";
+@import "../../styles/variables.scss";
+
+.container {
+  width: 40px;
+  height: 500px;
+  padding-top: 30px;
+  background-color: lightgray;
+  transition: all 0.3s ease-in-out;
+  @include flex(column, center, start);
+
+  &:hover {
+    width: 200px;
+    padding: 30px 10px;
+    .button {
+      border: 1px solid blue;
+      height: 40px;
+      span {
+        display: flex;
+      }
+      svg {
+        height: 30px;
+      }
+    }
+  }
+}
+
+.button {
+  @include flex(row, center, center);
+  width: 100%;
+  display: flex;
+  border: none;
+  border-radius: 6px;
+  transition: all 0.3s ease-in-out;
+  margin: 5px 0;
+
+  span {
+    transition: all 0.2s ease-in-out;
+    transition-delay: 2s;
+    display: none;
+  }
+
+  svg {
+    height: 20px;
+    transition: all 0.3s ease-in-out;
+  }
+}
