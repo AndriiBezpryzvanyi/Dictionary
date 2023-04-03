@@ -1,5 +1,5 @@
 import MainSidebar from "./Components/MainSidebar/MainSidebar";
-import AddWordPage from "./Page/AddWordPage/AddWordPage";
+import AddWordPage from "./Page/AddWordPage/WordPage";
 
 function App() {
   return (
