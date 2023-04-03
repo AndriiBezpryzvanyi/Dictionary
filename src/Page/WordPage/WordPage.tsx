@@ -24,7 +24,7 @@ const AddWordPage = () => {
             onChange={(e) => setValueWord(e.target.value)}
             className={styles.input}
           />
-          <div className={styles.divider}/>
+          <div className={styles.divider} />
           <input
             placeholder="Слово українською"
             value={translateWord}
