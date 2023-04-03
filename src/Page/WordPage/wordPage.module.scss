@@ -35,12 +35,12 @@
   width: 20px;
   height: 4px;
   background-color: lightgrey;
-  border-radius: 20px
+  border-radius: 20px;
 }
 
 .addButton {
   @include flex(row, center, center);
-  width: 170px;
+  width: 180px;
   height: 35px;
   border-radius: $medium-border-radius;
   cursor: pointer;
