@@ -1,12 +1,11 @@
-import MainSidebar from "./Components/MainSidebar/MainSidebar";
+import MainLayer from "./Components/MainLayer/MainLayer";
 import AddWordPage from "./Page/WordPage/WordPage";
 
 function App() {
   return (
-    <div style={{ display: "flex" }}>
-      <MainSidebar />
+    <MainLayer>
       <AddWordPage />
-    </div>
+    </MainLayer>
   );
 }
 
