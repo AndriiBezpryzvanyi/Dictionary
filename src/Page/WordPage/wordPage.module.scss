@@ -40,7 +40,7 @@
 
 .addButton {
   @include flex(row, center, center);
-  width: 170px;
+  width: 180px;
   height: 35px;
   border-radius: $medium-border-radius;
   cursor: pointer;
