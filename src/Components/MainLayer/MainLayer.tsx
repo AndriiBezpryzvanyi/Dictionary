@@ -1,5 +1,6 @@
 import React from "react";
 import MainSidebar from "../MainSidebar/MainSidebar";
+import { Box } from "@mui/material";
 
 interface MainLayerProps {
   children: React.ReactNode;
@@ -7,10 +8,10 @@ interface MainLayerProps {
 
 const MainLayer = ({ children }: MainLayerProps) => {
   return (
-    <div style={{ display: "flex" }}>
+    <Box display="flex">
       <MainSidebar />
       {children}
-    </div>
+    </Box>
   );
 };
 

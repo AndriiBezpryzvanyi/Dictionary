@@ -1,7 +1,7 @@
-import styles from "./trainingPage.module.scss";
+import { Box } from "@mui/material";
 
 const TrainingPage = () => {
-  return <div className={styles.container}></div>;
+  return <Box></Box>;
 };
 
 export default TrainingPage;

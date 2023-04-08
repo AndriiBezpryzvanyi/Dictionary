@@ -1,5 +1,5 @@
 import { useState } from "react";
-import styles from "./wordPage.module.scss";
+import { Box, TextField, Button } from "@mui/material";
 
 const AddWordPage = () => {
   const [valueWord, setValueWord] = useState("");
@@ -15,28 +15,44 @@ const AddWordPage = () => {
   };
 
   return (
-    <div className={styles.container}>
-      <div className={styles.addWordBlock}>
-        <div className={styles.inputsBlock}>
-          <input
+    <Box width="100%">
+      <Box
+        display="flex"
+        flexDirection="column"
+        alignItems="center"
+        justifyContent="space-around"
+        margin="30px auto 0 auto"
+        height="100px"
+        width="450px"
+      >
+        <Box
+          display="flex"
+          alignItems="center"
+          justifyContent="space-between"
+          width="100%"
+        >
+          <TextField
             placeholder="Слово англійською"
             value={valueWord}
             onChange={(e) => setValueWord(e.target.value)}
-            className={styles.input}
           />
-          <div className={styles.divider} />
-          <input
+          <Box
+            sx={{
+              width: "20px",
+              height: "4px",
+              backgroundColor: "lightgrey",
+              borderRadius: "20px",
+            }}
+          />
+          <TextField
             placeholder="Слово українською"
             value={translateWord}
             onChange={(e) => setTranslateWord(e.target.value)}
-            className={styles.input}
           />
-        </div>
-        <div onClick={handleAddWord} className={styles.addButton}>
-          Додати до словника
-        </div>
-      </div>
-    </div>
+        </Box>
+        <Button onClick={handleAddWord}>Додати до словника</Button>
+      </Box>
+    </Box>
   );
 };
 
