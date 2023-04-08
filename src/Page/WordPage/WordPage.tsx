@@ -35,6 +35,7 @@ const AddWordPage = () => {
             placeholder="Слово англійською"
             value={valueWord}
             onChange={(e) => setValueWord(e.target.value)}
+            sx={{ input: { color: "black" } }}
           />
           <Box
             sx={{
@@ -48,6 +49,7 @@ const AddWordPage = () => {
             placeholder="Слово українською"
             value={translateWord}
             onChange={(e) => setTranslateWord(e.target.value)}
+            sx={{ input: { color: "black" } }}
           />
         </Box>
         <Button onClick={handleAddWord}>Додати до словника</Button>
