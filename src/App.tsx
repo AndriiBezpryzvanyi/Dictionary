@@ -8,8 +8,8 @@ function App() {
   return (
     <ThemeProvider theme={theme}>
       <MainLayer>
-        {/* <AddWordPage /> */}
-        <TrainingPage />
+        <AddWordPage />
+        {/* <TrainingPage /> */}
       </MainLayer>
     </ThemeProvider>
   );
