@@ -8,7 +8,7 @@ const AddWordPage = () => {
   const handleAddWord = () => {
     if (valueWord && translateWord) {
       const words = localStorage.getItem("w") || "";
-      localStorage.setItem("w", `${valueWord}~${translateWord}*0*` + words);
+      localStorage.setItem("w", `${valueWord}*${translateWord}*0.` + words);
       setValueWord("");
       setTranslateWord("");
     }
@@ -25,16 +25,11 @@ const AddWordPage = () => {
         height="100px"
         width="450px"
       >
-        <Box
-          display="flex"
-          alignItems="center"
-          justifyContent="space-between"
-          width="100%"
-        >
+        <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
           <TextField
             placeholder="Слово англійською"
             value={valueWord}
-            onChange={(e) => setValueWord(e.target.value)}
+            onChange={(e) => setValueWord(e.target.value.trim())}
             sx={{ input: { color: "black" } }}
           />
           <Box
@@ -48,7 +43,7 @@ const AddWordPage = () => {
           <TextField
             placeholder="Слово українською"
             value={translateWord}
-            onChange={(e) => setTranslateWord(e.target.value)}
+            onChange={(e) => setTranslateWord(e.target.value.trim())}
             sx={{ input: { color: "black" } }}
           />
         </Box>
