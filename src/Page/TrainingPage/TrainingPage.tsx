@@ -62,20 +62,31 @@ const TrainingPage = () => {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
+        height: "100vh",
       }}
     >
       <form onSubmit={formik.handleSubmit}>
         {currentWord.word ? (
-          <Box sx={{ display: "flex", alignItems: "center", gap: "7px" }}>
+          <Box
+            sx={(theme) => ({
+              display: "flex",
+              alignItems: "center",
+              gap: "7px",
+              [theme.breakpoints.down("sm")]: { flexDirection: "column" },
+            })}
+          >
             <Typography>{formik.values.word}</Typography>
 
             <Box
-              sx={{
+              sx={(theme) => ({
                 width: "15px",
                 height: "5px",
                 background: "grey",
                 borderRadius: "20px",
-              }}
+                [theme.breakpoints.down("sm")]: {
+                  display: "none",
+                },
+              })}
             />
 
             <TextField
