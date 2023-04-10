@@ -1,10 +1,20 @@
 import { Box, TextField, Button } from "@mui/material";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 interface AddedWord {
   word: string;
   translate: string;
 }
+
+const validateSchema = Yup.object().shape({
+  word: Yup.string()
+    .required("Це поле обов'язкове")
+    .test("is-number", "Тільки текст", (value) => !/\d/.test(value)),
+  translate: Yup.string()
+    .required("Це поле обов'язкове")
+    .test("is-number", "Тільки текст", (value) => !/\d/.test(value)),
+});
 
 const AddWordPage = () => {
   const handleAddWord = (value: AddedWord) => {
@@ -18,6 +28,7 @@ const AddWordPage = () => {
   const formik = useFormik({
     initialValues: { word: "", translate: "" },
     onSubmit: handleAddWord,
+    validationSchema: validateSchema,
   });
 
   return (
@@ -39,6 +50,8 @@ const AddWordPage = () => {
               value={formik.values.word}
               onChange={formik.handleChange}
               sx={{ input: { color: "black" } }}
+              error={formik.touched.word && Boolean(formik.errors.word)}
+              helperText={formik.touched.word && formik.errors.word}
             />
             <Box
               sx={{
@@ -54,6 +67,8 @@ const AddWordPage = () => {
               value={formik.values.translate}
               onChange={formik.handleChange}
               sx={{ input: { color: "black" } }}
+              error={formik.touched.translate && Boolean(formik.errors.translate)}
+              helperText={formik.touched.translate && formik.errors.translate}
             />
           </Box>
           <Button type="submit">Додати до словника</Button>
