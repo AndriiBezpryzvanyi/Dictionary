@@ -1,6 +1,7 @@
 import { Box, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useFormik } from "formik";
+import * as Yup from "yup";
 
 interface Word {
   word: string;
@@ -25,6 +26,12 @@ const TrainingPage = () => {
   const [passedWords, setPassedWords] = useState<Word[]>([]);
   const [currentWord, setCurrentWord] = useState<Word>(wordsFromLocalStorage[0]);
 
+  const validateSchema = Yup.object().shape({
+    translate: Yup.string()
+      .required()
+      .test("is-number", "!", (value) => value === currentWord.translate),
+  });
+
   const formik = useFormik({
     initialValues: {
       word: currentWord?.word,
@@ -32,6 +39,7 @@ const TrainingPage = () => {
       mark: currentWord?.mark,
     },
     onSubmit: handleAnswer,
+    validationSchema: validateSchema,
   });
 
   const getWord = () => {
@@ -48,10 +56,9 @@ const TrainingPage = () => {
   };
 
   function handleAnswer(value: Word) {
-    if (value?.translate === currentWord?.translate) {
-      getWord();
-      setPassedWords([...passedWords, { ...value, mark: +value.mark + 1 }]);
-    }
+    getWord();
+    setPassedWords([...passedWords, { ...value, mark: +value.mark + 1 }]);
+    formik.setFieldTouched("translate", false);
   }
 
   return (
@@ -94,6 +101,7 @@ const TrainingPage = () => {
               value={formik.values.translate}
               onChange={formik.handleChange}
               sx={{ input: { color: "black" } }}
+              error={formik.touched.word && Boolean(formik.errors.translate)}
             />
           </Box>
         ) : (
