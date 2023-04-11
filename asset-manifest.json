@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "//andriibezpryzvanyi.github.io/static/css/main.a4d0d26e.css",
-    "main.js": "//andriibezpryzvanyi.github.io/static/js/main.3491516c.js",
-    "index.html": "//andriibezpryzvanyi.github.io/index.html",
-    "static/media/letters.svg": "//andriibezpryzvanyi.github.io/static/media/letters.ca671016e386480b532db17433491e3f.svg",
-    "static/media/training.svg": "//andriibezpryzvanyi.github.io/static/media/training.b8dc4a4fa78e1dd040271db21f8a307d.svg",
-    "main.a4d0d26e.css.map": "//andriibezpryzvanyi.github.io/static/css/main.a4d0d26e.css.map",
-    "main.3491516c.js.map": "//andriibezpryzvanyi.github.io/static/js/main.3491516c.js.map"
+    "main.css": "//andriibezpryzvanyi.github.io/Dictionary/static/css/main.a4d0d26e.css",
+    "main.js": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.5ddd52a2.js",
+    "index.html": "//andriibezpryzvanyi.github.io/Dictionary/index.html",
+    "static/media/letters.svg": "//andriibezpryzvanyi.github.io/Dictionary/static/media/letters.ca671016e386480b532db17433491e3f.svg",
+    "static/media/training.svg": "//andriibezpryzvanyi.github.io/Dictionary/static/media/training.b8dc4a4fa78e1dd040271db21f8a307d.svg",
+    "main.a4d0d26e.css.map": "//andriibezpryzvanyi.github.io/Dictionary/static/css/main.a4d0d26e.css.map",
+    "main.5ddd52a2.js.map": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.5ddd52a2.js.map"
   },
   "entrypoints": [
     "static/css/main.a4d0d26e.css",
-    "static/js/main.3491516c.js"
+    "static/js/main.5ddd52a2.js"
   ]
 }
