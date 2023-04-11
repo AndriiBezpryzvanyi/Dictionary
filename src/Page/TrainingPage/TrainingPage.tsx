@@ -13,7 +13,7 @@ const TrainingPage = () => {
   const validateSchema = Yup.object().shape({
     translate: Yup.string()
       .required()
-      .test("is-number", "", (value) => normalizeCase(value) === currentWord.translate),
+      .test("is-number", "", (value) => normalizeCase(value.trim()) === currentWord.translate),
   });
 
   const formik = useFormik({
