@@ -1,10 +1,12 @@
 import { ReactComponent as TrainingIcon } from "../../Assets/icons/training.svg";
 import { ReactComponent as WordsIcon } from "../../Assets/icons/letters.svg";
 import { Box, Typography } from "@mui/material";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { ROUTE_WORDS_PATH, ROUTE_TRAINING_PATH } from "../../utils/contstants";
 
 const MainSidebar = () => {
+  const { pathname } = useLocation();
+
   return (
     <Box
       sx={(theme) => ({
@@ -72,6 +74,7 @@ const MainSidebar = () => {
           overflow: "hidden",
           cursor: "pointer",
           textDecoration: "none",
+          backgroundColor: pathname === ROUTE_WORDS_PATH ? theme.palette.primary.dark : "inherit",
 
           [theme.breakpoints.down("md")]: {
             height: "35px",
@@ -144,6 +147,7 @@ const MainSidebar = () => {
           overflow: "hidden",
           cursor: "pointer",
           textDecoration: "none",
+          backgroundColor: pathname === ROUTE_TRAINING_PATH ? theme.palette.primary.dark : "inherit",
 
           [theme.breakpoints.down("md")]: {
             height: "35px",
