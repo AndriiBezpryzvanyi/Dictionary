@@ -1,12 +1,7 @@
 import { Box, TextField, Button } from "@mui/material";
 import { useFormik } from "formik";
-import { normalizeCase } from "../../utils/utils";
+import { addWordsToLocalStorage } from "../../utils/utils";
 import * as Yup from "yup";
-
-interface AddedWord {
-  word: string;
-  translate: string;
-}
 
 const validateSchema = Yup.object().shape({
   word: Yup.string()
@@ -18,9 +13,8 @@ const validateSchema = Yup.object().shape({
 });
 
 const AddWordPage = () => {
-  const handleAddWord = (value: AddedWord) => {
-    const words = localStorage.getItem("w") || "";
-    localStorage.setItem("w", `${normalizeCase(value.word)}*${normalizeCase(value.translate)}*0.` + words);
+  const handleAddWord = (value: Omit<Word, "mark">) => {
+    addWordsToLocalStorage({ ...value, mark: 0 });
     formik.resetForm();
   };
 
