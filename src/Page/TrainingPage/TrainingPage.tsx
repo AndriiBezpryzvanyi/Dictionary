@@ -2,6 +2,7 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { normalizeCase } from "../../utils/utils";
 
 interface Word {
   word: string;
@@ -9,27 +10,27 @@ interface Word {
   mark: string | number;
 }
 
-const wordsFromLocalStorage = localStorage
-  .getItem("w")
-  ?.split(".")
-  ?.map((wordsInLS) => {
-    const splitWord = wordsInLS.split("*");
-    return {
-      word: splitWord[0],
-      translate: splitWord[1],
-      mark: splitWord[2],
-    };
-  })
-  .filter((item) => item.word) ?? [{ word: "", translate: "", mark: "" }];
-
 const TrainingPage = () => {
   const [passedWords, setPassedWords] = useState<Word[]>([]);
+
+  const wordsFromLocalStorage = localStorage
+    .getItem("w")
+    ?.split(".")
+    ?.map((wordsInLS) => {
+      const splitWord = wordsInLS.split("*");
+      return {
+        word: splitWord[0],
+        translate: splitWord[1],
+        mark: splitWord[2],
+      };
+    })
+    .filter((item) => item.word) ?? [{ word: "", translate: "", mark: "" }];
   const [currentWord, setCurrentWord] = useState<Word>(wordsFromLocalStorage[0]);
 
   const validateSchema = Yup.object().shape({
     translate: Yup.string()
       .required()
-      .test("is-number", "!", (value) => value === currentWord.translate),
+      .test("is-number", "!", (value) => normalizeCase(value) === currentWord.translate),
   });
 
   const formik = useFormik({
