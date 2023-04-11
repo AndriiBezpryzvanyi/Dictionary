@@ -2,12 +2,12 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { normalizeCase, getWordsFromLocaleStorage } from "../../utils/utils";
+import { normalizeCase, getWordsFromLocaleStorage, updateWordInLocaleStorage } from "../../utils/utils";
 
 const TrainingPage = () => {
   const [passedWords, setPassedWords] = useState<Word[]>([]);
 
-  const wordsFromLocalStorage = getWordsFromLocaleStorage()
+  const wordsFromLocalStorage = getWordsFromLocaleStorage();
   const [currentWord, setCurrentWord] = useState<Word>(wordsFromLocalStorage[0]);
 
   const validateSchema = Yup.object().shape({
@@ -40,10 +40,11 @@ const TrainingPage = () => {
   };
 
   function handleAnswer(value: Word) {
+    const updatedWord = { ...value, mark: +value.mark + 1 };
     getWord();
-    setPassedWords([...passedWords, { ...value, mark: +value.mark + 1 }]);
+    setPassedWords([...passedWords, updatedWord]);
+    updateWordInLocaleStorage(updatedWord);
     formik.setFieldTouched("translate", false);
-    console.log(wordsFromLocalStorage)
   }
 
   return (
