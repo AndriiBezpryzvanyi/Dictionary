@@ -1,5 +1,6 @@
 import { Box, TextField, Button } from "@mui/material";
 import { useFormik } from "formik";
+import { useRef } from "react";
 import { addWordToLocalStorage } from "../../utils/utils";
 import * as Yup from "yup";
 
@@ -13,9 +14,13 @@ const validateSchema = Yup.object().shape({
 });
 
 const AddWordPage = () => {
+  const firstFieldRef = useRef<HTMLInputElement | null>(null);
+
   const handleAddWord = (value: Omit<Word, "mark">) => {
     addWordToLocalStorage({ ...value, mark: 0 });
     formik.resetForm();
+    firstFieldRef.current?.focus();
+    console.log(firstFieldRef.current)
   };
 
   const formik = useFormik({
@@ -38,6 +43,7 @@ const AddWordPage = () => {
         >
           <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
             <TextField
+              inputRef={firstFieldRef}
               placeholder="Слово англійською"
               name="word"
               value={formik.values.word}
