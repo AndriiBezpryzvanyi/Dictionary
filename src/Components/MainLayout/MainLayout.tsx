@@ -6,7 +6,7 @@ interface MainLayerProps {
   children: React.ReactNode;
 }
 
-const MainLayer = ({ children }: MainLayerProps) => {
+const MainLayout = ({ children }: MainLayerProps) => {
   return (
     <Box display="flex" sx={{ backgroundColor: "background.default" }}>
       <MainSidebar />
@@ -15,4 +15,4 @@ const MainLayer = ({ children }: MainLayerProps) => {
   );
 };
 
-export default MainLayer;
+export default MainLayout;
