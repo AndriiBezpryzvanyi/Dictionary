@@ -8,7 +8,7 @@ interface MainLayerProps {
 
 const MainLayer = ({ children }: MainLayerProps) => {
   return (
-    <Box display="flex">
+    <Box display="flex" sx={{ backgroundColor: "background.default" }}>
       <MainSidebar />
       {children}
     </Box>
