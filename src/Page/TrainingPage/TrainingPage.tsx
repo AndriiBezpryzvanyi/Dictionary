@@ -2,35 +2,18 @@ import { Box, Typography, TextField, Button } from "@mui/material";
 import { useState } from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { normalizeCase } from "../../utils/utils";
-
-interface Word {
-  word: string;
-  translate: string;
-  mark: string | number;
-}
+import { normalizeCase, getWordsFromLocaleStorage, updateWordInLocaleStorage } from "../../utils/utils";
 
 const TrainingPage = () => {
   const [passedWords, setPassedWords] = useState<Word[]>([]);
 
-  const wordsFromLocalStorage = localStorage
-    .getItem("w")
-    ?.split(".")
-    ?.map((wordsInLS) => {
-      const splitWord = wordsInLS.split("*");
-      return {
-        word: splitWord[0],
-        translate: splitWord[1],
-        mark: splitWord[2],
-      };
-    })
-    .filter((item) => item.word) ?? [{ word: "", translate: "", mark: "" }];
+  const wordsFromLocalStorage = getWordsFromLocaleStorage();
   const [currentWord, setCurrentWord] = useState<Word>(wordsFromLocalStorage[0]);
 
   const validateSchema = Yup.object().shape({
     translate: Yup.string()
       .required()
-      .test("is-number", "!", (value) => normalizeCase(value) === currentWord.translate),
+      .test("is-number", "", (value) => normalizeCase(value) === currentWord.translate),
   });
 
   const formik = useFormik({
@@ -44,7 +27,7 @@ const TrainingPage = () => {
   });
 
   const getWord = () => {
-    const indexCurrentWord = wordsFromLocalStorage.findIndex((word) => word.word === currentWord.word);
+    const indexCurrentWord = wordsFromLocalStorage.findIndex((word: Word) => word.word === currentWord.word);
     const newWord =
       passedWords.length + 1 === wordsFromLocalStorage?.length
         ? { word: "", translate: "", mark: "" }
@@ -57,8 +40,10 @@ const TrainingPage = () => {
   };
 
   function handleAnswer(value: Word) {
+    const updatedWord = { ...value, mark: +value.mark + 1 };
     getWord();
-    setPassedWords([...passedWords, { ...value, mark: +value.mark + 1 }]);
+    setPassedWords([...passedWords, updatedWord]);
+    updateWordInLocaleStorage(updatedWord);
     formik.setFieldTouched("translate", false);
   }
 
