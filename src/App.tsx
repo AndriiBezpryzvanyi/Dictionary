@@ -4,7 +4,7 @@ import AddWordPage from "./Page/WordPage/WordPage";
 import theme from "./Theme/theme";
 import TrainingPage from "./Page/TrainingPage/TrainingPage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
-import { ROUTE_TRAINING_PATH, ROUTE_WORDS_PATH } from "./utils/contstants";
+import { ROUTE_TRAINING_PATH, ROUTE_WORDS_PATH } from "./utils/routes";
 
 function App() {
   return (

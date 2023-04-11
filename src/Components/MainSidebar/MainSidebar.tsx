@@ -2,7 +2,7 @@ import { ReactComponent as TrainingIcon } from "../../Assets/icons/training.svg"
 import { ReactComponent as WordsIcon } from "../../Assets/icons/letters.svg";
 import { Box, Typography } from "@mui/material";
 import { Link, useLocation } from "react-router-dom";
-import { ROUTE_WORDS_PATH, ROUTE_TRAINING_PATH } from "../../utils/contstants";
+import { ROUTE_WORDS_PATH, ROUTE_TRAINING_PATH } from "../../utils/routes";
 
 const MainSidebar = () => {
   const { pathname } = useLocation();
