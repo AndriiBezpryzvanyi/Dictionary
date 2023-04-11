@@ -1,6 +1,8 @@
 import { ReactComponent as TrainingIcon } from "../../Assets/icons/training.svg";
 import { ReactComponent as WordsIcon } from "../../Assets/icons/letters.svg";
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
+import { Link } from "react-router-dom";
+import { ROUTE_WORDS_PATH, ROUTE_TRAINING_PATH } from "../../utils/contstants";
 
 const MainSidebar = () => {
   return (
@@ -56,6 +58,8 @@ const MainSidebar = () => {
       })}
     >
       <Box
+        component={Link}
+        to={ROUTE_WORDS_PATH}
         sx={(theme) => ({
           display: "flex",
           alignItems: "center",
@@ -67,6 +71,7 @@ const MainSidebar = () => {
           margin: "5px 0",
           overflow: "hidden",
           cursor: "pointer",
+          textDecoration: "none",
 
           [theme.breakpoints.down("md")]: {
             height: "35px",
@@ -82,18 +87,6 @@ const MainSidebar = () => {
             backgroundColor: theme.palette.primary.dark,
             [theme.breakpoints.down("sm")]: {
               backgroundColor: "inherit",
-            },
-          },
-          "& span": {
-            fontFamily: '"Montserrat", sans-serif',
-            fontSize: "16px",
-            fontWeight: 600,
-            transition: "all 0.2s ease-in-out",
-            display: "none",
-            [theme.breakpoints.down("md")]: {
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: "14px",
-              fontWeight: 600,
             },
           },
 
@@ -117,9 +110,28 @@ const MainSidebar = () => {
         className="button"
       >
         <WordsIcon />
-        <span>Слова</span>
+        <Typography
+          component="span"
+          color="black"
+          sx={(theme) => ({
+            fontFamily: '"Montserrat", sans-serif',
+            fontSize: "16px",
+            fontWeight: 600,
+            transition: "all 0.2s ease-in-out",
+            display: "none",
+            [theme.breakpoints.down("md")]: {
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: "14px",
+              fontWeight: 600,
+            },
+          })}
+        >
+          Слова
+        </Typography>
       </Box>
       <Box
+        component={Link}
+        to={ROUTE_TRAINING_PATH}
         sx={(theme) => ({
           display: "flex",
           alignItems: "center",
@@ -131,6 +143,7 @@ const MainSidebar = () => {
           margin: "5px 0",
           overflow: "hidden",
           cursor: "pointer",
+          textDecoration: "none",
 
           [theme.breakpoints.down("md")]: {
             height: "35px",
@@ -147,19 +160,6 @@ const MainSidebar = () => {
               backgroundColor: "inherit",
             },
           },
-          "& span": {
-            fontFamily: '"Montserrat", sans-serif',
-            fontSize: "16px",
-            fontWeight: 600,
-            transition: "all 0.2s ease-in-out",
-            display: "none",
-            [theme.breakpoints.down("md")]: {
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: "14px",
-              fontWeight: 600,
-            },
-          },
-
           "& svg": {
             margin: "0 10px",
             height: "30px",
@@ -180,7 +180,24 @@ const MainSidebar = () => {
         className="button"
       >
         <TrainingIcon />
-        <span>Тренування</span>
+        <Typography
+          color="black"
+          component="span"
+          sx={(theme) => ({
+            fontFamily: '"Montserrat", sans-serif',
+            fontSize: "16px",
+            fontWeight: 600,
+            transition: "all 0.2s ease-in-out",
+            display: "none",
+            [theme.breakpoints.down("md")]: {
+              fontFamily: '"Montserrat", sans-serif',
+              fontSize: "14px",
+              fontWeight: 600,
+            },
+          })}
+        >
+          Тренування
+        </Typography>
       </Box>
     </Box>
   );

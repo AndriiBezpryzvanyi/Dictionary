@@ -62,16 +62,7 @@ const TrainingPage = () => {
   }
 
   return (
-    <Box
-      sx={{
-        width: "100%",
-        backgroundColor: "background.default",
-        display: "flex",
-        alignItems: "center",
-        justifyContent: "center",
-        height: "100vh",
-      }}
-    >
+    <Box sx={{ width: "100%", display: "flex", justifyContent: "center" }}>
       <form onSubmit={formik.handleSubmit}>
         {currentWord.word ? (
           <Box
@@ -79,6 +70,7 @@ const TrainingPage = () => {
               display: "flex",
               alignItems: "center",
               gap: "7px",
+              mt: 3,
               [theme.breakpoints.down("sm")]: { flexDirection: "column" },
             })}
           >
