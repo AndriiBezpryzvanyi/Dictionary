@@ -1,11 +1,18 @@
 export const normalizeCase = (word: string) => word[0].toUpperCase() + word.slice(1).toLowerCase();
 
+export const normalizeCaseForWord = (word: Word) => ({
+  word: normalizeCase(word.word),
+  translate: normalizeCase(word.translate),
+  mark: word.mark,
+});
+
+export const getStringWordsFromLocaleStorage = () => localStorage.getItem("w") || "";
+
 export const getWordsFromLocaleStorage = () => {
   return (
-    localStorage
-      .getItem("w")
-      ?.split(".")
-      ?.map((wordsInLS) => {
+    getStringWordsFromLocaleStorage()
+      .split(".")
+      .map((wordsInLS) => {
         const splitWord = wordsInLS.split("*");
         return {
           word: splitWord[0],
@@ -13,20 +20,20 @@ export const getWordsFromLocaleStorage = () => {
           mark: splitWord[2],
         };
       })
-      .filter((item) => item.word) ?? [{ word: "", translate: "", mark: "" }]
+      .filter((item) => item.word) || [{ word: "", translate: "", mark: "" }]
   );
 };
 
-export const addWordsToLocalStorage = (word: Word) =>
+export const addWordToLocalStorage = (word: Word) =>
   localStorage.setItem(
     "w",
-    `${normalizeCase(word.word)}*${normalizeCase(word.translate)}*${word.mark}.` + getWordsFromLocaleStorage(),
+    `${normalizeCase(word.word)}*${normalizeCase(word.translate)}*${word.mark}.` + getStringWordsFromLocaleStorage(),
   );
 
 export const updateWordInLocaleStorage = (word: Word) => {
   const currentWords = getWordsFromLocaleStorage().filter((item) => item.word !== word.word);
   localStorage.setItem(
     "w",
-    [word, ...currentWords].map((item) => `${item.word}*${item.translate}*${item.mark}`).join("."),
+    [normalizeCaseForWord(word), ...currentWords].map((item) => `${item.word}*${item.translate}*${item.mark}`).join("."),
   );
 };

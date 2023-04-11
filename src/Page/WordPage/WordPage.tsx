@@ -1,6 +1,6 @@
 import { Box, TextField, Button } from "@mui/material";
 import { useFormik } from "formik";
-import { addWordsToLocalStorage } from "../../utils/utils";
+import { addWordToLocalStorage } from "../../utils/utils";
 import * as Yup from "yup";
 
 const validateSchema = Yup.object().shape({
@@ -14,7 +14,7 @@ const validateSchema = Yup.object().shape({
 
 const AddWordPage = () => {
   const handleAddWord = (value: Omit<Word, "mark">) => {
-    addWordsToLocalStorage({ ...value, mark: 0 });
+    addWordToLocalStorage({ ...value, mark: 0 });
     formik.resetForm();
   };
 
