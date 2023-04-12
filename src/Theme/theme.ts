@@ -18,6 +18,16 @@ const theme = createTheme({
     borderRadius: 4,
   },
 
+  typography: {
+    fontSize: 16,
+    fontFamily: ["Montserrat"].join(","),
+    subtitle1: {
+      fontFamily: '"Montserrat", sans-serif',
+      fontSize: '16px',
+      fontWeight: '600',
+    },
+  },
+
   components: {
     MuiCssBaseline: {
       styleOverrides: {

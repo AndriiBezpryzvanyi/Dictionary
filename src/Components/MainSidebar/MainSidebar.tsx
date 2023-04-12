@@ -27,14 +27,11 @@ const MainSidebar = () => {
           <Typography
             component="span"
             color="black"
+            variant="subtitle1"
             sx={(theme) => ({
-              fontFamily: '"Montserrat", sans-serif',
-              fontSize: "16px",
-              fontWeight: 600,
               transition: "all 0.2s ease-in-out",
               display: "none",
               [theme.breakpoints.down("md")]: {
-                fontFamily: '"Montserrat", sans-serif',
                 fontSize: "14px",
                 fontWeight: 600,
               },
