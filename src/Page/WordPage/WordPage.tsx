@@ -20,7 +20,7 @@ const AddWordPage = () => {
     addWordToLocalStorage({ ...value, mark: 0 });
     formik.resetForm();
     firstFieldRef.current?.focus();
-    console.log(firstFieldRef.current)
+    console.log(firstFieldRef.current);
   };
 
   const formik = useFormik({
@@ -33,39 +33,59 @@ const AddWordPage = () => {
     <Box width="100%">
       <form onSubmit={formik.handleSubmit}>
         <Box
-          display="flex"
-          flexDirection="column"
-          alignItems="center"
-          justifyContent="space-around"
-          margin="30px auto 0 auto"
-          height="100px"
-          width="450px"
+          sx={(theme) => ({
+            display: "flex",
+            flexDirection: "column",
+            alignItems: "center",
+            justifyContent: "space-around",
+            margin: "30px auto 0 auto",
+            width: "450px",
+            gap: 2,
+            [theme.breakpoints.down("sm")]: {
+              width: "100%",
+              height: 'calc(100vh - 40px)',
+            },
+          })}
         >
-          <Box display="flex" alignItems="center" justifyContent="space-between" width="100%">
+          <Box
+            sx={(theme) => ({
+              display: "flex",
+              alignItems: "center",
+              justifyContent: "space-between",
+              width: "100%",
+              [theme.breakpoints.down("sm")]: {
+                flexDirection: "column",
+                gap: 2,
+              },
+            })}
+          >
             <TextField
               inputRef={firstFieldRef}
               placeholder="Слово англійською"
               name="word"
               value={formik.values.word}
               onChange={formik.handleChange}
-              sx={{ input: { color: "black" } }}
+              sx={(theme) => ({ input: { color: "black" }, [theme.breakpoints.down("sm")]: { width: "90%" } })}
               error={formik.touched.word && Boolean(formik.errors.word)}
               helperText={formik.touched.word && formik.errors.word}
             />
             <Box
-              sx={{
+              sx={(theme) => ({
                 width: "20px",
                 height: "4px",
                 backgroundColor: "lightgrey",
                 borderRadius: "20px",
-              }}
+                [theme.breakpoints.down("sm")]: {
+                  display: "none",
+                },
+              })}
             />
             <TextField
               placeholder="Слово українською"
               name="translate"
               value={formik.values.translate}
               onChange={formik.handleChange}
-              sx={{ input: { color: "black" } }}
+              sx={(theme) => ({ input: { color: "black" }, [theme.breakpoints.down("sm")]: { width: "90%" } })}
               error={formik.touched.translate && Boolean(formik.errors.translate)}
               helperText={formik.touched.translate && formik.errors.translate}
             />
