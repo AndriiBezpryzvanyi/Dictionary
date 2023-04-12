@@ -20,7 +20,10 @@ const MainSidebar = () => {
         <ButtonMainSidebar
           key={item.title}
           to={item.path}
-          sx={{ backgroundColor: pathname === item.path ? "primary.dark" : "inherit" }}
+          sx={(theme) => ({
+            backgroundColor: pathname === item.path ? "primary.dark" : "inherit",
+            [theme.breakpoints.down("sm")]: { backgroundColor: "inherit" },
+          })}
           className="button"
         >
           {item.icon}
