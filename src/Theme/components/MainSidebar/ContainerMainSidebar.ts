@@ -1,7 +1,7 @@
 import Box, { BoxProps } from "@mui/material/Box";
 import { styled } from "@mui/material/styles";
 
-const ContainerMainSidebar = styled(Box)<BoxProps>(({ theme }, ) => ({
+const ContainerMainSidebar = styled(Box)<BoxProps>(({ theme }) => ({
   width: "50px",
   height: "100vh",
   paddingTop: "30px",
@@ -11,6 +11,7 @@ const ContainerMainSidebar = styled(Box)<BoxProps>(({ theme }, ) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "start",
+  zIndex: theme.zIndex.drawer,
   [theme.breakpoints.down("md")]: {
     width: "40px",
   },

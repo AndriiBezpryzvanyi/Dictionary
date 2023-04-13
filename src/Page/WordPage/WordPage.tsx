@@ -43,7 +43,7 @@ const AddWordPage = () => {
             gap: 2,
             [theme.breakpoints.down("sm")]: {
               width: "100%",
-              height: 'calc(100vh - 40px)',
+              height: "calc(100vh - 40px)",
             },
           })}
         >
