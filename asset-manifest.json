@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "//andriibezpryzvanyi.github.io/Dictionary/static/css/main.a4d0d26e.css",
-    "main.js": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.a0a57745.js",
+    "main.js": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.d5881df4.js",
     "index.html": "//andriibezpryzvanyi.github.io/Dictionary/index.html",
     "static/media/letters.svg": "//andriibezpryzvanyi.github.io/Dictionary/static/media/letters.ca671016e386480b532db17433491e3f.svg",
     "static/media/training.svg": "//andriibezpryzvanyi.github.io/Dictionary/static/media/training.b8dc4a4fa78e1dd040271db21f8a307d.svg",
     "main.a4d0d26e.css.map": "//andriibezpryzvanyi.github.io/Dictionary/static/css/main.a4d0d26e.css.map",
-    "main.a0a57745.js.map": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.a0a57745.js.map"
+    "main.d5881df4.js.map": "//andriibezpryzvanyi.github.io/Dictionary/static/js/main.d5881df4.js.map"
   },
   "entrypoints": [
     "static/css/main.a4d0d26e.css",
-    "static/js/main.a0a57745.js"
+    "static/js/main.d5881df4.js"
   ]
 }
