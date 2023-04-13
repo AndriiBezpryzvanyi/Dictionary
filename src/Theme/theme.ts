@@ -23,12 +23,26 @@ const theme = createTheme({
     fontFamily: ["Montserrat"].join(","),
     subtitle1: {
       fontFamily: '"Montserrat", sans-serif',
-      fontSize: '16px',
-      fontWeight: '600',
+      fontSize: "16px",
+      fontWeight: "600",
     },
   },
 
   components: {
+    MuiTextField: {
+      styleOverrides: {
+        root: {
+          input: { color: "black" },
+          "& .MuiInputBase-root": {
+            "&:hover": {
+              fieldset: {
+                borderColor: "#1e88e5",
+              },
+            },
+          },
+        },
+      },
+    },
     MuiCssBaseline: {
       styleOverrides: {
         "html, body": {
