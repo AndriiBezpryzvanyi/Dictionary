@@ -12,8 +12,8 @@ const LoginPage = () => {
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
   return (
-    <Box width="100%" display="flex" alignItems="center" justifyContent="center" flexDirection="column">
-      <Box margin="20px auto" display="flex" gap={2}>
+    <Box width="100%" display="flex" alignItems="center" flexDirection="column">
+      <Box margin="60px auto" display="flex" gap={2}>
         {tabs.map((tab) => (
           <Typography
             key={tab.name}
