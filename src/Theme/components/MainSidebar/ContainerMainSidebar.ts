@@ -11,6 +11,7 @@ const ContainerMainSidebar = styled(Box)<BoxProps>(({ theme }, ) => ({
   flexDirection: "column",
   alignItems: "center",
   justifyContent: "start",
+  zIndex: theme.zIndex.drawer,
   [theme.breakpoints.down("md")]: {
     width: "40px",
   },
