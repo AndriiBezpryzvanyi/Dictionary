@@ -27,13 +27,16 @@ export const getWordsFromLocaleStorage = () => {
 export const addWordToLocalStorage = (word: Word) =>
   localStorage.setItem(
     "w",
-    `${normalizeCase(word.word.trim())}*${normalizeCase(word.translate.trim())}*${word.mark}.` + getStringWordsFromLocaleStorage(),
+    `${normalizeCase(word.word.trim())}*${normalizeCase(word.translate.trim())}*${word.mark}.` +
+      getStringWordsFromLocaleStorage(),
   );
 
 export const updateWordInLocaleStorage = (word: Word) => {
   const currentWords = getWordsFromLocaleStorage().filter((item) => item.word !== word.word);
   localStorage.setItem(
     "w",
-    [normalizeCaseForWord(word), ...currentWords].map((item) => `${item.word}*${item.translate}*${item.mark}`).join("."),
+    [normalizeCaseForWord(word), ...currentWords]
+      .map((item) => `${item.word}*${item.translate}*${item.mark}`)
+      .join("."),
   );
 };

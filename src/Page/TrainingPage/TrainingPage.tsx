@@ -57,7 +57,7 @@ const TrainingPage = () => {
               alignItems: "center",
               gap: "7px",
               mt: 3,
-              height: 'calc(100vh - 40px)',
+              height: "calc(100vh - 40px)",
               [theme.breakpoints.down("sm")]: { flexDirection: "column" },
             })}
           >
